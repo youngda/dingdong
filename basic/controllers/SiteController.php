@@ -68,6 +68,7 @@ class SiteController extends Controller
         $newData['get'] = json_encode(Yii::$app->request->get());
         $newData['post'] = json_encode(Yii::$app->request->post());
         $newData['ip'] = CommonFun::GetClientIp();
+        $newData['time'] = time();
         $newData->save();
         return $this->render('index');
     }
