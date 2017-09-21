@@ -12,6 +12,7 @@ use Yii;
  * @property string $get
  * @property string $post
  * @property integer $time
+ * @property string $res
  */
 class Data extends \yii\db\ActiveRecord
 {
@@ -30,7 +31,7 @@ class Data extends \yii\db\ActiveRecord
     {
         return [
             [['id'], 'required'],
-            [['ip', 'get', 'post'], 'string'],
+            [['ip', 'get', 'post', 'res'], 'string'],
             [['time'], 'integer'],
             [['id'], 'string', 'max' => 32],
         ];
@@ -47,6 +48,7 @@ class Data extends \yii\db\ActiveRecord
             'get' => 'Get',
             'post' => 'Post',
             'time' => 'Time',
+            'res' => 'Res',
         ];
     }
 }

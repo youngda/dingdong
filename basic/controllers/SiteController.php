@@ -69,8 +69,36 @@ class SiteController extends Controller
         $newData['post'] = json_encode(Yii::$app->request->post());
         $newData['ip'] = CommonFun::GetClientIp();
         $newData['time'] = time();
+
+
+        $res['directive']['directive_items'][] = ['content'=>'好的，已帮您关闭了客厅灯','type'=>'1'];
+        $res['extend']['NO_REC'] = '0';
+        $res['is_end'] = true;
+        $res['sequence'] = 'f10ee90bcff644cdab1ed2a18c4ddd63';
+        $res['timestamp'] = time();
+        $res['versionid'] = '1.0';
+
+        $newData['res'] = json_encode($res);
         $newData->save();
-        return $this->render('index');
+        $newData->save();
+        echo json_encode($res);
+        // {
+        //     "directive": {
+        //         "directive_items": [
+        //             {
+        //                 "content": "好的，已帮您关闭了客厅灯",
+        //                 "type": "1"
+        //             }
+        //         ]
+        // },
+        // "extend":{"NO_REC":"0"},
+        //     "is_end":true,
+        //     "sequence":"f10ee90bcff644cdab1ed2a18c4ddd63",
+        //     "timestamp":1483609208020,
+        //     "versionid": "1.0"
+        // }
+
+        // return $this->render('index');
     }
 
     /**
