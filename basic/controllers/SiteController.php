@@ -66,7 +66,7 @@ class SiteController extends Controller
         $post = Yii::$app->request->post();
 
         $get = Yii::$app->request->get();
-        // $newData = new Data();
+        $newData = new Data();
         $newData['id'] = CommonFun::CreateId();
         $newData['get'] = json_encode($get);
         $newData['post'] = json_encode($post);
