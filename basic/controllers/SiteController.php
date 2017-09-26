@@ -66,25 +66,25 @@ class SiteController extends Controller
         $post = Yii::$app->request->post();
 
         $get = Yii::$app->request->get();
-        $newData = new Data();
+        // $newData = new Data();
         $newData['id'] = CommonFun::CreateId();
         $newData['get'] = json_encode($get);
         $newData['post'] = json_encode($post);
         $newData['ip'] = CommonFun::GetClientIp();
         $newData['time'] = time();
         $newData->save();
+        //
+        // $res['directive']['directive_items'][] = ['content'=>'好的，已帮您关闭了客厅灯','type'=>'1'];
+        // $res['extend']['NO_REC'] = '0';
+        // $res['is_end'] = true;
+        // $res['sequence'] = $post['sequence'];
+        // $res['repeat_directive']['type'] = '1';
+        // $res['repeat_directive']['content'] = '听不懂你在说什么';
+        // $res['timestamp'] = time();
+        // $res['versionid'] = '1.0';
+        // echo json_encode($res);
 
-        $res['directive']['directive_items'][] = ['content'=>'好的，已帮您关闭了客厅灯','type'=>'1'];
-        $res['extend']['NO_REC'] = '0';
-        $res['is_end'] = true;
-        $res['sequence'] = $post['sequence'];
-        $res['repeat_directive']['type'] = '1';
-        $res['repeat_directive']['content'] = '听不懂你在说什么';
-        $res['timestamp'] = time();
-        $res['versionid'] = '1.0';
-        echo json_encode($res);
-
-        $newData->save();
+        // $newData->save();
 
         // {
         //     "directive": {
