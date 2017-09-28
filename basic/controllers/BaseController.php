@@ -44,9 +44,9 @@ class BaseController extends Controller
         $headers->add('Accept','application/json');
         $headers->add('Content-Type','application/json;charset=UTF-8');
         $headers->add('Accept-Charset','UTF-8');
-        // $headers->add('Access-Control-Allow-Origin', '*');
-        // $headers->add('Access-Control-Allow-Headers', 'content-type,token');
-        // $headers->add('Access-Control-Allow-Methods','POST,GET,OPTIONS');
+        $headers->add('Access-Control-Allow-Origin', '*');
+        $headers->add('Access-Control-Allow-Headers', 'content-type,token');
+        $headers->add('Access-Control-Allow-Methods','POST,GET,OPTIONS');
     }
 
 }
