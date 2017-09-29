@@ -84,8 +84,8 @@ class SiteController extends BaseController
         $res['extend']['NO_REC'] = '0';
         $res['is_end'] = true;
         // $res['sequence'] = $post['sequence'];
-        $res['repeat_directive']['type'] = '1';
-        $res['repeat_directive']['content'] = '听不懂你在说什么';
+        // $res['repeat_directive']['type'] = '1';
+        // $res['repeat_directive']['content'] = '听不懂你在说什么';
         $res['timestamp'] = time();
         $res['versionid'] = '1.0';
         echo json_encode($res);
