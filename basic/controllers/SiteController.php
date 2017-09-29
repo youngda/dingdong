@@ -74,8 +74,8 @@ class SiteController extends BaseController
         $get = Yii::$app->request->get();
         $newData = new Data();
         $newData['id'] = CommonFun::CreateId();
-        $newData['get'] = json_encode($get);
-        $newData['post'] = json_encode($post);
+        $newData['get'] = json_encode($_GET);
+        $newData['post'] = json_encode($_POST);
         $newData['ip'] = CommonFun::GetClientIp();
         $newData['time'] = time();
         $newData->save();
