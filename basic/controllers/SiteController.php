@@ -83,7 +83,7 @@ class SiteController extends BaseController
         $res['directive']['directive_items'][] = ['content'=>'好的，已帮您关闭了客厅灯','type'=>'1'];
         $res['extend']['NO_REC'] = '0';
         $res['is_end'] = true;
-        $res['sequence'] = $post['sequence'];
+        // $res['sequence'] = $post['sequence'];
         $res['repeat_directive']['type'] = '1';
         $res['repeat_directive']['content'] = '听不懂你在说什么';
         $res['timestamp'] = time();
