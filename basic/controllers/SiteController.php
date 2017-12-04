@@ -84,7 +84,7 @@ class SiteController extends BaseController
         $newData['ip'] = CommonFun::GetClientIp();
         $newData['time'] = time();
         //
-        $res['directive']['directive_items'][] = ['content'=>'好的，已帮您关闭了客厅灯','type'=>'1'];
+        $res['directive']['directive_items'][] = ['content'=>'大傻逼','type'=>'1'];
         $res['extend']['NO_REC'] = '0';
         $res['is_end'] = true;
         $res['sequence'] = $post['sequence'];
