@@ -90,7 +90,7 @@ class SiteController extends BaseController
         $i = 1;
         $str = '';
         foreach ($data['stories'] as $key => $value) {
-            $str .= $i.','.$value['title'];
+            $str .= $i.'，'.$value['title'].'。';
             // $res['directive']['directive_items'] = ['content'=>$value['title'], 'type'=>''.$i];
             $i++;
         }
