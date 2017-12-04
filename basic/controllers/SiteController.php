@@ -101,8 +101,8 @@ class SiteController extends BaseController
         $res['is_end'] = true;
         $res['sequence'] = $post['sequence'];
         $res['push_to_app']['title'] = 'test';
-        $res['push_to_app']['type'] = "2";
-        $res['push_to_app']['rich_contents'][] = ['type'=>'2','content'=>'https://pic3.zhimg.com/50/v2-2227224aab303f50deea51da1e4ff436_hd.jpg'];
+        $res['push_to_app']['type'] = "1";
+        $res['push_to_app']['text'] = "text";
         // $res['repeat_directive']['type'] = '1';
         // $res['repeat_directive']['content'] = '听不懂你在说什么';
         $res['timestamp'] = self::microtime_float();
