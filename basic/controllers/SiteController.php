@@ -61,7 +61,11 @@ class SiteController extends BaseController
             ],
         ];
     }
-
+    function microtime_float()
+    {
+       list($usec, $sec) = explode(" ", microtime());
+       return (int)(((float)$usec + (float)$sec)*1000);
+    }
     /**
      * Displays homepage.
      *
@@ -69,10 +73,10 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        $post = Yii::$app->request->post();
+        // $post = Yii::$app->request->post();
 
-        $get = Yii::$app->request->get();
-        $post = Yii::$app->request->post();
+        $get = \Yii::$app->request->get();
+        $post = \Yii::$app->request->post();
         $newData = new Data();
         $newData['id'] = CommonFun::CreateId();
         $newData['get'] = json_encode($get);
@@ -86,7 +90,7 @@ class SiteController extends BaseController
         $res['sequence'] = $post['sequence'];
         $res['repeat_directive']['type'] = '1';
         $res['repeat_directive']['content'] = '听不懂你在说什么';
-        $res['timestamp'] = time();
+        $res['timestamp'] = self::microtime_float();
         $res['versionid'] = '1.0';
         $$newData['res'] = json_encode($res);
         $newData->save();
