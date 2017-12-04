@@ -84,7 +84,17 @@ class SiteController extends BaseController
         $newData['ip'] = CommonFun::GetClientIp();
         $newData['time'] = time();
         //
-        $res['directive']['directive_items'][] = ['content'=>'大傻逼','type'=>'1'];
+        $data = file_get_contents("http://news-at.zhihu.com/api/4/news/latest");
+        $data = json_decode($data, true);
+        // var_dump($data);
+        $i = 2;
+        $res['directive']['directive_items'][] = ['content'=>'知乎搜索情况如下','type'=>'1'];
+        foreach ($data['stories'] as $key => $value) {
+            $res['directive']['directive_items'][] = ['content'=>$value['title'], 'type'=>''.$i];
+            $i++;
+        }
+        // var_dump($res);
+        // die;
         $res['extend']['NO_REC'] = '0';
         $res['is_end'] = true;
         $res['sequence'] = $post['sequence'];
