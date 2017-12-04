@@ -87,12 +87,14 @@ class SiteController extends BaseController
         $data = file_get_contents("http://news-at.zhihu.com/api/4/news/latest");
         $data = json_decode($data, true);
         // var_dump($data);
-        $i = 2;
-        $res['directive']['directive_items'][] = ['content'=>'知乎搜索情况如下','type'=>'1'];
-        // foreach ($data['stories'] as $key => $value) {
-        //     $res['directive']['directive_items'] = ['content'=>$value['title'], 'type'=>''.$i];
-        //     $i++;
-        // }
+        $i = 1;
+        $str = '';
+        foreach ($data['stories'] as $key => $value) {
+            $str .= $i.','.$value['title'];
+            // $res['directive']['directive_items'] = ['content'=>$value['title'], 'type'=>''.$i];
+            $i++;
+        }
+        $res['directive']['directive_items'][] = ['content'=>'知乎搜索情况如下'.$str,'type'=>'1'];
         // var_dump($res);
         // die;
         $res['extend']['NO_REC'] = '0';
