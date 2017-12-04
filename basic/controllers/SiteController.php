@@ -89,10 +89,10 @@ class SiteController extends BaseController
         // var_dump($data);
         $i = 2;
         $res['directive']['directive_items'][] = ['content'=>'知乎搜索情况如下','type'=>'1'];
-        foreach ($data['stories'] as $key => $value) {
-            $res['directive']['directive_items'] = ['content'=>$value['title'], 'type'=>''.$i];
-            $i++;
-        }
+        // foreach ($data['stories'] as $key => $value) {
+        //     $res['directive']['directive_items'] = ['content'=>$value['title'], 'type'=>''.$i];
+        //     $i++;
+        // }
         // var_dump($res);
         // die;
         $res['extend']['NO_REC'] = '0';
