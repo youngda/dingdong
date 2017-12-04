@@ -90,7 +90,7 @@ class SiteController extends BaseController
         $i = 2;
         $res['directive']['directive_items'][] = ['content'=>'知乎搜索情况如下','type'=>'1'];
         foreach ($data['stories'] as $key => $value) {
-            $res['directive']['directive_items'][] = ['content'=>$value['title'], 'type'=>''.$i];
+            $res['directive']['directive_items'] = ['content'=>$value['title'], 'type'=>''.$i];
             $i++;
         }
         // var_dump($res);
