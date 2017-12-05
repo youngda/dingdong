@@ -47,9 +47,9 @@ $config = [
         ],
         'db' => $db,
         // 设置项目全部使用json返回
-        // 'response' => [
-        //     'format' => 'json'
-        // ],
+        'response' => [
+            'format' => 'json'
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

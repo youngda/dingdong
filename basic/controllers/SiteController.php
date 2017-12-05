@@ -112,10 +112,10 @@ class SiteController extends BaseController
         $res['versionid'] = '1.0';
         $$newData['res'] = json_encode($res);
         $newData->save();
-        if($newData['session']['attributes']['option'] == "开灯"){
+        if($post['session']['attributes']['option'] == "开灯"){
             Config::updateAll(['value'=>'start'],['config_name'=>'light']);
             $res['directive']['directive_items'][] = ['content'=>'好的，已帮你开灯','type'=>'1'];
-        }else if($newData['session']['attributes']['option'] == "关灯"){
+        }else if($post['session']['attributes']['option'] == "关灯"){
             $res['directive']['directive_items'][] = ['content'=>'好的，已帮你关灯','type'=>'1'];
             Config::updateAll(['value'=>'1'],['config_name'=>'light']);
         }
