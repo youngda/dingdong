@@ -8,6 +8,9 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'assetManager' => [
+        'linkAssets' => true,
+    ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'dingdongcodelover',
@@ -44,9 +47,9 @@ $config = [
         ],
         'db' => $db,
         // 设置项目全部使用json返回
-        'response' => [
-            'format' => 'json'
-        ],
+        // 'response' => [
+        //     'format' => 'json'
+        // ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

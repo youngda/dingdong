@@ -10,6 +10,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Data;
+use app\models\Config;
+
 use common\CommonFun;
 
 class SiteController extends BaseController
@@ -84,17 +86,18 @@ class SiteController extends BaseController
         $newData['ip'] = CommonFun::GetClientIp();
         $newData['time'] = time();
         //
-        $data = file_get_contents("http://news-at.zhihu.com/api/4/news/latest");
-        $data = json_decode($data, true);
-        // var_dump($data);
-        $i = 1;
-        $str = '';
-        foreach ($data['stories'] as $key => $value) {
-            $str .= $i.'，'.$value['title'].'。';
-            // $res['directive']['directive_items'] = ['content'=>$value['title'], 'type'=>''.$i];
-            $i++;
-        }
-        $res['directive']['directive_items'][] = ['content'=>'知乎搜索情况如下'.$str,'type'=>'1'];
+        // $data = file_get_contents("http://news-at.zhihu.com/api/4/news/latest");
+        // $data = json_decode($data, true);
+        // // var_dump($data);
+        // $i = 1;
+        // $str = '';
+        // foreach ($data['stories'] as $key => $value) {
+        //     $str .= $i.'，'.$value['title'].'。';
+        //     // $res['directive']['directive_items'] = ['content'=>$value['title'], 'type'=>''.$i];
+        //     $i++;
+        // }
+
+
         // var_dump($res);
         // die;
         $res['extend']['NO_REC'] = '0';
@@ -109,6 +112,13 @@ class SiteController extends BaseController
         $res['versionid'] = '1.0';
         $$newData['res'] = json_encode($res);
         $newData->save();
+        if($newData['session']['attributes']['option'] == "开灯"){
+            Config::updateAll(['value'=>'start'],['config_name'=>'light']);
+            $res['directive']['directive_items'][] = ['content'=>'好的，已帮你开灯','type'=>'1'];
+        }else if($newData['session']['attributes']['option'] == "关灯"){
+            $res['directive']['directive_items'][] = ['content'=>'好的，已帮你关灯','type'=>'1'];
+            Config::updateAll(['value'=>'1'],['config_name'=>'light']);
+        }
         echo json_encode($res);
 
         // $newData->save();
